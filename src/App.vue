@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import {  ref } from 'vue'
+import { ref } from 'vue'
 
-const counter = ref(0)
-
-function handleAdd() {
-  counter.value += 1
-}
+const username = ref('123')
+const password = ref('666')
 </script>
 
 <template>
-  <div>
-    {{ counter }}
+  <div class="form">
+    <span>{{ username }}</span>
+    {{ password }}
+  </div>
+  <div class="form">
 
-    counter
-
-    <button @click="handleAdd">Add</button>
+    <input placeholder="username" v-model="username" />
+    <input placeholder="password" v-bind:value="password"/>
+    <button @click="() => {username = '456'}">submit</button>
   </div>
 </template>
+
+<style>
+.form>* {
+  display: block;
+}
+</style>
